@@ -3,10 +3,10 @@ const faceLandmarkCanvas = document.getElementById('faceLandmarkDetector');
 const loginButton = document.getElementById('loginButton');
 
 let userDetails = {
-  age:"",
-  gender:"",
-  emotions:"",
-  position:0
+  age: "",
+  gender: "",
+  emotions: "",
+  position: 0
 }
 
 try {
@@ -83,12 +83,9 @@ async function recognize() {
 
     result = results[0]
 
-    if(result.distance > userDetails.position){
-      userDetails.age = resizedDetections[0].age;
-      userDetails.gender = resizedDetections[0].gender;
-      userDetails.position = result.distance;
-      console.log(userDetails)
-    }
+    userDetails.age = resizedDetections[0].age;
+    userDetails.gender = resizedDetections[0].gender;
+
 
     if (results && result.label !== "unknown") {
       loginButton.disabled = false
